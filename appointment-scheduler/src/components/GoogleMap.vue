@@ -30,8 +30,8 @@
 
 <script>
 export default {
-  name: "GoogleMap",
-  data() {
+  name: 'GoogleMap',
+  data () {
     return {
       // default to Montreal to keep it simple
       // change this to whatever makes sense
@@ -39,46 +39,46 @@ export default {
       markers: [],
       places: [],
       currentPlace: null
-    };
+    }
   },
 
-  mounted() {
-    this.geolocate();
+  mounted () {
+    this.geolocate()
   },
 
   methods: {
     // receives a place object via the autocomplete component
-    addLocation: function(){
+    addLocation: function () {
       console.log('something is happening')
       this.$emit('addLocation', this.places)
     },
-    setPlace(place) {
-      this.currentPlace = place;
+    setPlace (place) {
+      this.currentPlace = place
     },
-    addMarker() {
+    addMarker () {
       if (this.currentPlace) {
         console.log(this.currentPlace)
         const marker = {
           lat: this.currentPlace.geometry.location.lat(),
           lng: this.currentPlace.geometry.location.lng()
-        };
-        this.markers.push({ position: marker });
-        //Theres a better fix for this. Maybe just get rid of that array altogether (places array)
+        }
+        this.markers.push({ position: marker })
+        // Theres a better fix for this. Maybe just get rid of that array altogether (places array)
         this.places = []
-        this.places.push(this.currentPlace);
+        this.places.push(this.currentPlace)
         console.log(this.places)
-        this.center = marker;
-        this.currentPlace = null;
+        this.center = marker
+        this.currentPlace = null
       }
     },
-    geolocate: function() {
+    geolocate: function () {
       navigator.geolocation.getCurrentPosition(position => {
         this.center = {
           lat: position.coords.latitude,
           lng: position.coords.longitude
-        };
-      });
+        }
+      })
     }
   }
-};
+}
 </script>

@@ -7,14 +7,14 @@ import Vuetify from 'vuetify'
 import VeeValidate from 'vee-validate'
 import store from './store'
 import 'vuetify/dist/vuetify.min.css'
-import * as VueGoogleMaps from "vue2-google-maps";
+import * as VueGoogleMaps from 'vue2-google-maps'
 
 Vue.use(VueGoogleMaps, {
   load: {
-    key: "AIzaSyA1AlTOi31LbVIm8QpftDzH2m39FrTgvQo",
-    libraries: "places" // necessary for places input
+    key: 'AIzaSyA1AlTOi31LbVIm8QpftDzH2m39FrTgvQo',
+    libraries: 'places' // necessary for places input
   }
-});
+})
 Vue.use(Vuetify)
 Vue.use(VeeValidate)
 
